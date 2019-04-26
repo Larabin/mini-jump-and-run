@@ -4,6 +4,10 @@ import groundImg from "./assets/platform.png"
 import starImg from "./assets/star.png"
 import bombImg from "./assets/bomb.png"
 import dudeImg from "./assets/dude.png"
+/*
+import slamSound from "./assets/slam.wav"
+import coinSound from "./assets/coin.wav"
+import jumpSound from "./assets/jump.wav" */
 
 const config = {
   type: Phaser.AUTO,
@@ -36,6 +40,12 @@ function preload() {
     frameWidth: 32,
     frameHeight: 48
   });
+
+  this.load.audio('slam', './src/assets/slam.wav');
+  this.load.audio('jump', './src/assets/jump.wav');
+  this.load.audio('coin', './src/assets/coin.wav');
+  this.load.audio('beer', './src/assets/beer.wav');
+
 }
 
 let platforms;
@@ -71,6 +81,9 @@ function create() {
 
   player.setBounce(0.2);
   player.setCollideWorldBounds(true);
+
+
+
 
   this.anims.create({
     key: 'left',
@@ -160,6 +173,7 @@ function update() {
 
   if (cursors.up.isDown && player.body.touching.down) {
     player.setVelocityY(-330);
+    this.sound.play('jump');
   }
 
 }
@@ -167,10 +181,15 @@ function update() {
 function collectStar(player, star) {
   star.disableBody(true, true);
 
+  this.sound.play('coin');
+
   score += 10;
   scoreText.setText('Score: ' + score);
 
   if (stars.countActive(true) === 0) {
+
+    this.sound.play('beer');
+
     stars.children.iterate(function (child) {
 
       child.enableBody(true, child.x, 0, true, true);
@@ -188,6 +207,8 @@ function collectStar(player, star) {
 }
 
 function hitBomb(player, bomb) {
+
+  this.sound.play('slam');
   this.physics.pause();
 
   player.setTint(0xff0000);
