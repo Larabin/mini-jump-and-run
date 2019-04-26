@@ -1,5 +1,5 @@
 import Phaser from "phaser";
-import * as Scene from "./Scene";
+import {preload, create, update} from "./Scene";
 
 const config = {
   type: Phaser.AUTO,
@@ -14,9 +14,9 @@ const config = {
     }
   },
   scene: {
-    preload: Scene.preload,
-    create: Scene.create,
-    update: Scene.update
+    preload: preload,
+    create: create,
+    update: update
   }
 };
 
