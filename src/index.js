@@ -1,6 +1,5 @@
 import Phaser from "phaser";
-import Player from "./models/Player";
-import World from "./models/World";
+import * as Scene from "./Scene";
 
 const config = {
   type: Phaser.AUTO,
@@ -15,24 +14,10 @@ const config = {
     }
   },
   scene: {
-    preload: preload,
-    create: create
+    preload: Scene.preload,
+    create: Scene.create,
+    update: Scene.update
   }
 };
 
 const game = new Phaser.Game(config);
-
-const player = new Player();
-const world = new World();
-
-
-function preload() { 
-  world.preload(this);
-  player.preload(this);
-}
-
-function create() {
-  world.create(this);
-  player.create(this);
-  this.physics.add.collider(player.getPlayer(), world.getPlatforms());
-}
