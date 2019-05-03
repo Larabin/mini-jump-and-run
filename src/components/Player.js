@@ -1,4 +1,5 @@
-import charImg from "./../assets/dude.png";
+import charImg from "./../assets/images/dude.png";
+import jumpWav from "./../assets/audio/jump.wav";
 export default class Player{
 
     constructor(scene) {
@@ -8,7 +9,8 @@ export default class Player{
     }
 
     preload() {
-        this.scene.load.spritesheet('char', charImg, { frameWidth: 32, frameHeight: 48 } );        
+        this.scene.load.spritesheet('char', charImg, { frameWidth: 32, frameHeight: 48 } );  
+        this.scene.load.audio('jump', jumpWav);    
     }
 
     create() {
@@ -54,6 +56,7 @@ export default class Player{
         }
 
         if (this.cursors.up.isDown && this.sprite.body.touching.down){
+            this.scene.sound.play('jump');
             this.sprite.setVelocityY(-500);
         }
     }

@@ -1,8 +1,8 @@
 import Phaser from "phaser";
-import Player from "./components/Player";
-import World from "./components/World";
-import Items from "./components/Items";
-import Score from "./components/Score";
+import Player from "../components/Player";
+import World from "../components/World";
+import Items from "../components/Items";
+import Score from "../components/Score";
 
 export default class NeoScene extends Phaser.Scene {
 
@@ -59,6 +59,7 @@ export default class NeoScene extends Phaser.Scene {
         this.physics.pause();
         player.setTint(0xff0000);
         player.anims.play('turn');
+        this.items.hitBomb(player, bomb); 
         this.gameOver = true;
     }
 }

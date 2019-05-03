@@ -1,5 +1,5 @@
-import groundImg from "./../assets/platform.png";
-import skyImg from "./../assets/sky.png";
+import groundImg from "./../assets/images/platform.png";
+import skyImg from "./../assets/images/sky.png";
 
 export default class World {
 
