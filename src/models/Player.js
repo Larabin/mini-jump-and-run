@@ -54,7 +54,7 @@ export default class Player{
         }
 
         if (this.cursors.up.isDown && this.sprite.body.touching.down){
-            this.sprite.setVelocityY(-450);
+            this.sprite.setVelocityY(-500);
         }
     }
 
