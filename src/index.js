@@ -1,5 +1,5 @@
 import Phaser from "phaser";
-import {preload, create, update} from "./Scene";
+import NeoScene from "./NeoScene";
 
 const config = {
   type: Phaser.AUTO,
@@ -12,11 +12,7 @@ const config = {
         debug: false
     }
   },
-  scene: {
-    preload: preload,
-    create: create,
-    update: update
-  }
+  scene: [NeoScene]  
 };
 
 const game = new Phaser.Game(config);
