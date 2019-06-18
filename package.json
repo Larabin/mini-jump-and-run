@@ -1,22 +1,14 @@
 {
-  "name": "hack-a-game",
-  "version": "0.0.0",
-  "description": "A hackathon game",
+  "name": "mini-jump-and-run",
+  "version": "0.1.0",
+  "description": "Try out Phaser.io with ES6",
   "main": "src/index.js",
-  "author": "",
+  "author": "Jennifer Weniger",
   "license": "MIT",
   "scripts": {
     "build": "webpack --config webpack/prod.js ",
     "start": "webpack-dev-server --config webpack/base.js --open"
   },
-  "repository": {
-    "type": "git",
-    "url": "git+https://github.com/neofonie/hack-a-game.git"
-  },
-  "bugs": {
-    "url": "https://github.com/neofonie/hack-a-game/issues"
-  },
-  "homepage": "https://github.com/neofonie/hack-a-game#readme",
   "devDependencies": {
     "@babel/core": "^7.2.2",
     "@babel/preset-env": "^7.2.3",

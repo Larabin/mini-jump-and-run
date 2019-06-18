@@ -3,7 +3,9 @@
 A Phaser 3 project template with ES6 support via [Babel 7](https://babeljs.io/) and [Webpack 4](https://webpack.js.org/)
 that includes hot-reloading for development and production-ready builds.
 
-Loading images via JavaScript module `import` is also supported.
+Loading images and sound via JavaScript module `import` is also supported.
+
+(The Game logic is based by the official Phaser 3 tutoria http://phaser.io/tutorials/making-your-first-phaser-3-game/part1)
 
 ## Requirements
 

@@ -58,7 +58,7 @@ export default class Items {
     }
 
     hitBomb(player,bomb) {
-        this.bombs.scene.sound.play('slam');
+        this.scene.sound.play('slam');
         bomb.disableBody(true, true);
         let explosion = this.scene.physics.add.sprite(bomb.x, bomb.y, 'explosion');
 
@@ -67,7 +67,8 @@ export default class Items {
             frames: this.scene.anims.generateFrameNumbers('explosion', { start: 0, end: 11 }),
             frameRate: 10            
         });
-
+        
+        explosion.on('animationcomplete', (anim, frame) => this.scene.scene.start("StartScene"), this);        
         explosion.anims.play('explosion', true);
     }
 
